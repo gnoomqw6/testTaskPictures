@@ -1,0 +1,16 @@
+<apex:page >
+    <apex:includeLightning />
+
+    <div id="lightning"></div>
+
+    <script>
+        $Lightning.use("c:testTaskApp", function() {
+          $Lightning.createComponent("c:testTaskCmp",
+          {},
+          "lightning",
+          function(cmp) {
+            
+          });
+        });
+    </script>
+</apex:page>
