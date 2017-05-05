@@ -1,0 +1,83 @@
+<aura:component controller="FileController">
+	<aura:attribute name="allPictures" type="List" />
+    <aura:attribute name="pictures" type="List" />
+    <aura:attribute name="insertPictureSource" type="String" />
+    <aura:attribute name="insertPicture" type="String" />
+    <aura:attribute name="bigFile" type="Boolean" default="false" />
+    <aura:attribute name="uploadError" type="Boolean" default="false" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doinit}" />
+    <aura:handler event="aura:waiting" action="{!c.showSpinner}" />
+    <aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}" />
+    
+    <div class="slds-p-around--large slds-text-align--center">
+    	Upload Your image
+          
+       	<input type="file" aura:id="hiddenFile" class="slds-file-selector__input slds-assistive-text slds-m-horizontal--medium" 
+       				accept="image/jpeg, image/png, image/gif" id="file-upload-input-01" onchange="{!c.loadFile}"/>
+       	<label class="slds-file-selector__body" for="file-upload-input-01">
+       		<span class="uploadBtn slds-file-selector__button slds-button slds-button--neutral">
+           		Upload
+           		<img class="slds-button__icon slds-button__icon--right" style="height: 35px; width: 35px" 
+            						src="http://simpleicon.com/wp-content/uploads/cloud-upload-1.png"/>
+            </span>
+        </label>
+        
+        <br/>
+        
+        <aura:if isTrue="{!v.uploadError}">
+        <div onclick="{!c.closeErrorMsg}">
+        	<ui:message class="errorMsg" title="Upload can not be completed!" severity="error" closable="true">
+        		The extension of uploading file should be ".jpg", ".png" or ".gif".
+        		<br/><br/>
+        		<span style="font-size: small;">click this message to close it</span>
+        	</ui:message>
+        </div>
+        </aura:if>
+        
+        <aura:if isTrue="{!v.bigFile}">
+        <div onclick="{!c.closeErrorBigFileMsg}">
+        	<ui:message class="errorMsg" title="Upload can not be completed!" severity="error" closable="true">
+        		File size is over the limit. Maximum file size - 683kb.
+        		<br/><br/>
+        		<span style="font-size: small;">click this message to close it</span>
+        	</ui:message>
+        </div>
+        </aura:if>
+        
+        <span style="font-size: 0.6em;">OR</span>
+        <br/>
+        Select From the already uploaded
+        <br/>
+        
+        <div class="searchBox">
+        	<span>Search</span>
+        	<div class="slds-input-has-icon slds-input-has-icon--right slds-m-left--small searchStr">
+        		<img class="slds-input__icon" aria-hidden="true" src="http://www.clker.com/cliparts/7/C/B/Q/6/n/search-icon-hi.png" onclick="{!c.search}"/>
+      			<ui:inputText aura:id="searchString" class="searchField slds-p-horizontal--small" 
+      						placeholder="Type part of name and press 'Enter'" change="{!c.search}"/>
+      		</div>
+        </div>
+        
+        <center class="spinnerContainer"><ui:spinner aura:id="spinner"/></center>
+        
+    	<div class="slds-scrollable--y imgBox">
+    		<aura:iteration items="{!v.pictures}" var="pic">
+    			<div class="singleImg slds-m-around--xx-small slds-p-around--xx-small" id="{!pic.id}" onclick="{!c.selectPic}">
+    				<img src="{!pic.body}"/><br/>
+    				<ui:outputText class="slds-text-align--center" value="{!pic.name}"/>
+    			</div>
+    		</aura:iteration>
+    	</div>
+    	
+    	<input type="button" class="uploadBtn insertBtn slds-p-vertical--x-small" value="INSERT IMAGE" onclick="{!c.insertPic}"/><br/>
+    	
+    	<span>Placeholder for your image:</span>
+    	
+    	<div class="insertedImg">
+    		<img src="{!v.insertPicture}"/>
+    	</div>
+    </div>
+    
+    
+</aura:component>

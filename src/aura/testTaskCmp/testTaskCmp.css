@@ -1,0 +1,144 @@
+.THIS {
+    color: white;
+    font-size: 2em;
+    height: 100%;
+    background-color: #383838;
+}
+
+.THIS .uploadBtn {
+	margin: -3px 0 10px 15px;
+    background: #F25402;
+    border-radius: 5px;
+    border-color: #F25402;
+    color: white;
+    font-weight: bold;
+}
+
+.THIS .uploadBtn:hover {
+	background: #FF822E;
+	border-color: #FF822E;
+	color: white;
+	cursor: default;
+}
+
+.THIS .errorMsg {
+	width: 50%;
+	margin: auto;
+	position: absolute;
+	left: 50%;
+	top: 30%;
+	margin-left: -25%;
+	font-size: 0.6em;
+	padding-bottom: 5px;
+	cursor: default;
+}
+
+.THIS .spinnerContainer {
+	position: absolute;
+	width: 10%;
+	left: 45%;
+	top: 32%;
+	background-color: black;
+	opacity: 0.5;
+}
+
+.THIS .searchBox {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.THIS .searchStr {
+	display: inline-block;
+	width: 40%;
+	color: black;
+	font-size: 0.8em;
+}
+
+.THIS .insertBtn:active, .THIS .insertBtn:focus {
+	outline: none !important;
+}
+
+.THIS .searchField {
+	width: 96%;
+	border-radius: 7px;
+}
+
+.THIS .imgBox {
+	height: 230px;
+	width: 50%;
+	margin: auto;
+	margin-bottom: 20px;
+	margin-top: 10px;
+	padding-top: 5px;
+	text-align: left;
+	border: 4px solid #F25402;
+	border-radius: 5px;
+	color: #FF822E;
+}
+
+.THIS .imgBox::-webkit-scrollbar-button {
+	background-color: #383838;
+background-image:url('http://images.vectorhq.com/images/previews/efc/orange-circle-psd-413481.png');
+background-repeat:no-repeat;
+background-size: contain;
+border: 4px solid #383838;
+border-left: none;
+width:15px;
+height:20px;
+}
+
+.THIS .imgBox::-webkit-scrollbar-track {
+background-color:#383838;
+border-right: 4px solid #383838;
+}
+
+.THIS .imgBox::-webkit-scrollbar-thumb {
+-webkit-border-radius: 0px;
+border-radius: 0px;
+background-color:#F25402;
+border-right: 4px solid #383838;
+}
+
+.THIS .imgBox::-webkit-scrollbar-thumb:hover{
+background-color:#F25402;
+}
+
+.THIS .imgBox::-webkit-scrollbar{
+width: 15px;
+border-right: 10px solid #383838;
+}
+
+.THIS .singleImg {
+	display: inline-block;
+	font-size: 0.5em;
+	width: 18%;
+	border: 2px solid #383838;
+	text-align: center;
+}
+
+.THIS .singleImg img {
+	width: 90%;
+}
+
+.THIS .insertBtn {
+	width: 28%;
+	margin: auto;
+	margin-bottom: 20px;
+	font-weight: normal;
+	font-size: 0.6em;
+	border: none;
+}
+
+.THIS .insertedImg {
+	width: 100px;
+	height: 100px;
+	margin: auto;
+	margin-top: 10px;
+	border: 2px solid #F25402;
+	border-radius: 5px;
+	background-color: grey;
+}
+
+.THIS .insertedImg img {
+	width: 100%;
+}
